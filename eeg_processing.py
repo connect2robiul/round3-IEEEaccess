@@ -13,7 +13,7 @@ class EEG:
         self.beta = {}
         self.gamma = {}
 
-        base = "round3-IEEEaccess/datasets/"
+        base = "round3-IEEEaccess/datasets"
         if dataset == "Mona Lisa":
             Dname = "/Figs for spectra"
             var1 = "/Backgr_int_"
