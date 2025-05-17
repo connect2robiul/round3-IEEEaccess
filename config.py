@@ -10,7 +10,7 @@ class Config:
     LR = 1e-4
     LR_PATIENCE = 3
     INTENSITIES = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
-   # DATASETS = ["Mona Lisa", "Necker cube"]
+    DATASETS = ["Mona Lisa", "Necker cube"]
     EXPERIMENTS = datasets = ["Mona Lisa", "Necker cube"]
     RHYTHMS = ['alpha', 'beta', 'delta', 'gamma', 'theta']
     MODELS = ['Big', 'Small', 'CNN']
