@@ -42,7 +42,7 @@ splits = df['frequency'].unique()
 
 for split in tqdm(splits):
     dataset[split] = Dataset.from_pandas(df[df['frequency'] == split])
-    st.write(print(dataset))
+    st.write(dataset)
 
 
 
