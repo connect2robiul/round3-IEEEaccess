@@ -6,6 +6,7 @@ from eeg_processing import EEG
 from model import RobiulModel
 from supabase_utils import get_supabase_client
 from config import Config
+import pandas as pd 
 
 st.title("Brain Hemisphere Analysis App")
 
