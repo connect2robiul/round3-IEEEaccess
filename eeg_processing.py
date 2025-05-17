@@ -59,3 +59,38 @@ class EEG:
         res_gamma = signal.convolve(self.int[intensity][:, channel_idx], filter_gamma, mode='same')
 
         return res_delta, res_theta, res_alpha, res_beta, res_gamma
+    
+
+
+def createdataframe(user,dataset,signal_fiq):
+    global Intencity,channel_names
+    tem_signal = []
+    eeg_person = EEG(user,dataset)
+    for i in Intencity:
+        for ch in range(0,31):
+            tem = [dataset,ch,channel_names[ch],convart_sin_fiq(signal_fiq),signal_fiq,i,user]
+            # tem = [channel_names[ch]]
+            S = 'tem_signal.append(np.append(tem, eeg_person.'+signal_fiq+'.get(i)[:,ch][0:15000]))'
+            eval(S)
+    
+           
+    tem_dataframe = pd.DataFrame(tem_signal)
+
+    colunm = [] 
+
+    colunm.append("Dataset")
+    colunm.append("channel")
+    colunm.append("Channel_Name")
+    colunm.append("band")
+    colunm.append("frequency")
+    colunm.append("Intencity")
+    colunm.append("participant")
+
+    for col in range(0,15000):
+      S = 'Time'+str(col)
+      colunm.append(S)    
+    
+    
+    
+    tem_dataframe.columns  = colunm 
+    return tem_dataframe

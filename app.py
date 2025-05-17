@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import torch
-from eeg_processing import EEG
+from eeg_processing import * 
 from model import RobiulModel
 from supabase_utils import get_supabase_client
 from config import Config
