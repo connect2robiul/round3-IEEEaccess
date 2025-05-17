@@ -31,7 +31,7 @@ class EEG:
           #  st.write("Come from EEG Process:Loading EEG file from:", abs_path)
 
             I = intensity
-            self.int[I] = np.loadtxt(S))
+            self.int[I] = np.loadtxt(S)
 
             st.write("ALL good")
 
