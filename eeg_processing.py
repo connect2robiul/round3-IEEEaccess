@@ -1,6 +1,8 @@
 import os
 import numpy as np
 import scipy.signal as signal
+from config import Config
+
 
 class EEG:
     def __init__(self, participant, dataset):
