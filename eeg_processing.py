@@ -3,6 +3,13 @@ import numpy as np
 import scipy.signal as signal
 from config import Config
 import streamlit as st
+import pandas as pd
+
+
+base = "/mount/src/round3-ieeeaccess/datasets"    
+file_path = os.path.join(base, "Channels.dat")
+df_channels = pd.read_csv(file_path, header=None, sep='.')
+channel_names = df_channels.iloc[:, -1:].values.flatten()
 
 
 class EEG:
@@ -14,7 +21,8 @@ class EEG:
         self.beta = {}
         self.gamma = {}
 
-        base = "/mount/src/round3-ieeeaccess/datasets"
+      #  base = "/mount/src/round3-ieeeaccess/datasets"
+        global base
         if dataset == "Mona Lisa":
             Dname = "/Figs for spectra"
             var1 = "/Backgr_int_"
@@ -66,14 +74,13 @@ class EEG:
         res_gamma = signal.convolve(self.int[intensity][:, channel_idx], filter_gamma, mode='same')
 
         return res_delta, res_theta, res_alpha, res_beta, res_gamma
-    
 
 
 def createdataframe(user,dataset,signal_fiq):
-    global Intencity,channel_names
+    global channel_names
     tem_signal = []
     eeg_person = EEG(user,dataset)
-    for i in Intencity:
+    for i in Config.INTENSITIES:
         for ch in range(0,31):
             tem = [dataset,ch,channel_names[ch],convart_sin_fiq(signal_fiq),signal_fiq,i,user]
             # tem = [channel_names[ch]]
