@@ -22,6 +22,10 @@ def safe_torch_import():
 st.write("Add function output:", add(2, 3))
 
 
+import os
+st.write("Current working directory:", os.getcwd())
+
+
 
 
 df = pd.DataFrame()

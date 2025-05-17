@@ -27,6 +27,9 @@ class EEG:
         for intensity in Config.INTENSITIES:
             S = os.path.join(base, "Participant " + str(participant) + Dname + var1 + str(intensity) + var2)
             st.write(S)
+            abs_path = os.path.abspath(S)
+            st.write("Come from EEG Process:Loading EEG file from:", abs_path)
+
             I = intensity
             self.int[I] = np.loadtxt(S)
 
