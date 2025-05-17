@@ -12,12 +12,14 @@
 
 
 streamlit
-torch
 pandas
 numpy
+torch
 scikit-learn
 matplotlib
 scipy
 tqdm
 supabase
 psycopg2-binary
+python-dotenv
+
