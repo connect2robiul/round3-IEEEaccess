@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import torch
+#import torch 
 from eeg_processing import EEG, createdataframe , add 
 from model import RobiulModel
 from supabase_utils import get_supabase_client
@@ -19,6 +19,7 @@ def safe_torch_import():
     import torch
 
 print(add(2, 3)) 
+st.write("Add function output:", add(2, 3))
 
 
 
