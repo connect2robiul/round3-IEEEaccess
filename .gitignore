@@ -1,0 +1,27 @@
+# Environment variables
+.env
+
+# Dataset files
+Datasets/
+*.csv
+
+# Python cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Virtual environments
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# Logs and checkouts
+Log/
+Checkpoints/
+*.log
+.ipynb_checkpoints
