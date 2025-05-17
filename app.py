@@ -45,6 +45,8 @@ for split in tqdm(splits):
     st.write(dataset)
 
 
+st.stop() 
+
 
 # df = pd.DataFrame()
 
