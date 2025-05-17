@@ -17,7 +17,6 @@ st.title("Brain Hemisphere Analysis App")
 
 
 print(add(2, 3)) 
-print(eeg_processing.add(2, 3)) 
 
 
 
