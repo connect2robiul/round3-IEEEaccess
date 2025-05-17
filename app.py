@@ -8,6 +8,8 @@ from supabase_utils import get_supabase_client
 from config import Config
 import pandas as pd 
 from tqdm import trange
+from datasets import Dataset, DatasetDict
+from tqdm import trange, tqdm
 
 
 st.title("Brain Hemisphere Analysis App")
@@ -17,26 +19,46 @@ st.title("Brain Hemisphere Analysis App")
 
 
 
+
+
 df = pd.DataFrame()
 
-for experiment in Config.EXPERIMENTS:
+for experiment in Config.DATASETS:
     for rhythm in Config.RHYTHMS:
         participants = trange(1, 6, leave=True)
         for user in participants:
             df = pd.concat([df, createdataframe(user, experiment, rhythm)], ignore_index=True)
-            participants.set_postfix(rhythm=rhythm, user=user, counts=len(df),  experiment=experiment, refresh=True)
-
-
+            participants.set_postfix(rhythm=rhythm, user=user, counts=len(df), experiment=experiment, refresh=True)
 
 dataset = DatasetDict()
 splits = df['frequency'].unique()
 
 for split in tqdm(splits):
-    # dataset = DatasetDict(
-    #     {split: Dataset.from_pandas(df[df['frequency'] == split])}
-    # )
-    dataset[split] = Dataset.from_pandas(df[df['frequency'] == split], split=split)
-    print(dataset) 
+    dataset[split] = Dataset.from_pandas(df[df['frequency'] == split])
+    print(dataset)
+
+
+
+# df = pd.DataFrame()
+
+# for experiment in Config.EXPERIMENTS:
+#     for rhythm in Config.RHYTHMS:
+#         participants = trange(1, 6, leave=True)
+#         for user in participants:
+#             df = pd.concat([df, createdataframe(user, experiment, rhythm)], ignore_index=True)
+#             participants.set_postfix(rhythm=rhythm, user=user, counts=len(df),  experiment=experiment, refresh=True)
+
+
+
+# dataset = DatasetDict()
+# splits = df['frequency'].unique()
+
+# for split in tqdm(splits):
+#     # dataset = DatasetDict(
+#     #     {split: Dataset.from_pandas(df[df['frequency'] == split])}
+#     # )
+#     dataset[split] = Dataset.from_pandas(df[df['frequency'] == split], split=split)
+#     print(dataset) 
 
 
 
