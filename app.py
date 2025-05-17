@@ -15,7 +15,7 @@ st.title("Brain Hemisphere Analysis App")
 
 
 
-df = DataFrame()
+df = pd.DataFrame()
 
 for experiment in Config.EXPERIMENTS:
     for rhythm in Config.RHYTHMS:
