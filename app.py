@@ -18,27 +18,27 @@ def safe_torch_import():
     global torch
     import torch
 
-print(add(2, 3)) 
+
 st.write("Add function output:", add(2, 3))
 
 
 
 
-# df = pd.DataFrame()
+df = pd.DataFrame()
 
-# for experiment in Config.DATASETS:
-#     for rhythm in Config.RHYTHMS:
-#         participants = trange(1, 6, leave=True)
-#         for user in participants:
-#             df = pd.concat([df, createdataframe(user, experiment, rhythm)], ignore_index=True)
-#             participants.set_postfix(rhythm=rhythm, user=user, counts=len(df), experiment=experiment, refresh=True)
+for experiment in Config.DATASETS:
+    for rhythm in Config.RHYTHMS:
+        participants = trange(1, 6, leave=True)
+        for user in participants:
+            df = pd.concat([df, createdataframe(user, experiment, rhythm)], ignore_index=True)
+            participants.set_postfix(rhythm=rhythm, user=user, counts=len(df), experiment=experiment, refresh=True)
 
-# dataset = DatasetDict()
-# splits = df['frequency'].unique()
+dataset = DatasetDict()
+splits = df['frequency'].unique()
 
-# for split in tqdm(splits):
-#     dataset[split] = Dataset.from_pandas(df[df['frequency'] == split])
-#     print(dataset)
+for split in tqdm(splits):
+    dataset[split] = Dataset.from_pandas(df[df['frequency'] == split])
+    st.write(print(dataset))
 
 
 
