@@ -7,6 +7,8 @@ from model import RobiulModel
 from supabase_utils import get_supabase_client
 from config import Config
 import pandas as pd 
+from tqdm import trange
+
 
 st.title("Brain Hemisphere Analysis App")
 
