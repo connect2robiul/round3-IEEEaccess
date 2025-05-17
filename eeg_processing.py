@@ -24,7 +24,7 @@ class EEG:
             var2 = "_type_0.4.dat"
 
         for intensity in Config.INTENSITIES:
-            S = os.path.join(base, f"Participant{participant}{Dname}{var1}{intensity}{var2}")
+            S = os.path.join(base, "Participant " + str(participant) + Dname + var1 + str(intensity) + var2)
             I = intensity
             self.int[I] = np.loadtxt(S)
 
