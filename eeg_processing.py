@@ -2,6 +2,7 @@ import os
 import numpy as np
 import scipy.signal as signal
 from config import Config
+import streamlit as st
 
 
 class EEG:
@@ -25,6 +26,7 @@ class EEG:
 
         for intensity in Config.INTENSITIES:
             S = os.path.join(base, "Participant " + str(participant) + Dname + var1 + str(intensity) + var2)
+            st.write(S)
             I = intensity
             self.int[I] = np.loadtxt(S)
 
