@@ -31,7 +31,9 @@ class EEG:
             st.write("Come from EEG Process:Loading EEG file from:", abs_path)
 
             I = intensity
-            self.int[I] = np.loadtxt(S)
+            self.int[I] = np.loadtxt(abs_path)
+
+            st.write("ALL good")
 
             delta_signal = np.empty(self.int[I].shape)
             theta_signal = np.empty(self.int[I].shape)
