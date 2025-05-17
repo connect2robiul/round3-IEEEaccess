@@ -14,7 +14,9 @@ from tqdm import trange, tqdm
 
 st.title("Brain Hemisphere Analysis App")
 
-
+def safe_torch_import():
+    global torch
+    import torch
 
 print(add(2, 3)) 
 
