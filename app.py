@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import torch
-from eeg_processing import EEG, createdataframe 
+from eeg_processing import EEG, createdataframe , add 
 from model import RobiulModel
 from supabase_utils import get_supabase_client
 from config import Config
@@ -16,26 +16,27 @@ st.title("Brain Hemisphere Analysis App")
 
 
 
+print(add(2, 3)) 
+print(eeg_processing.add(2, 3)) 
 
 
 
 
+# df = pd.DataFrame()
 
-df = pd.DataFrame()
+# for experiment in Config.DATASETS:
+#     for rhythm in Config.RHYTHMS:
+#         participants = trange(1, 6, leave=True)
+#         for user in participants:
+#             df = pd.concat([df, createdataframe(user, experiment, rhythm)], ignore_index=True)
+#             participants.set_postfix(rhythm=rhythm, user=user, counts=len(df), experiment=experiment, refresh=True)
 
-for experiment in Config.DATASETS:
-    for rhythm in Config.RHYTHMS:
-        participants = trange(1, 6, leave=True)
-        for user in participants:
-            df = pd.concat([df, createdataframe(user, experiment, rhythm)], ignore_index=True)
-            participants.set_postfix(rhythm=rhythm, user=user, counts=len(df), experiment=experiment, refresh=True)
+# dataset = DatasetDict()
+# splits = df['frequency'].unique()
 
-dataset = DatasetDict()
-splits = df['frequency'].unique()
-
-for split in tqdm(splits):
-    dataset[split] = Dataset.from_pandas(df[df['frequency'] == split])
-    print(dataset)
+# for split in tqdm(splits):
+#     dataset[split] = Dataset.from_pandas(df[df['frequency'] == split])
+#     print(dataset)
 
 
 
