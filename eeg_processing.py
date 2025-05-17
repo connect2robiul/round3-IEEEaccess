@@ -14,7 +14,7 @@ class EEG:
         self.beta = {}
         self.gamma = {}
 
-        base = "round3-IEEEaccess/datasets"
+        base = "/mount/src/round3-ieeeaccess/datasets"
         if dataset == "Mona Lisa":
             Dname = "/Figs for spectra"
             var1 = "/Backgr_int_"
@@ -27,11 +27,11 @@ class EEG:
         for intensity in Config.INTENSITIES:
             S = os.path.join(base, "Participant " + str(participant) + Dname + var1 + str(intensity) + var2)
             st.write(S)
-            abs_path = os.path.abspath(S)
-            st.write("Come from EEG Process:Loading EEG file from:", abs_path)
+         #   abs_path = os.path.abspath(S)
+          #  st.write("Come from EEG Process:Loading EEG file from:", abs_path)
 
             I = intensity
-            self.int[I] = np.loadtxt(abs_path)
+            self.int[I] = np.loadtxt(S))
 
             st.write("ALL good")
 
